@@ -13,3 +13,10 @@ var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementById("losses-text");
 var guessesLeft = document.getElementById("guessesLeft-text");
 var guessedLetters = document.getElementById("guessProgress-text");
+
+// Chooses a random letter from the alphabet array and assigns it to compChoice
+var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+// Logs compChoice to console for testing puroses
+console.log(compChoice);
+
