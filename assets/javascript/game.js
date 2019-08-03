@@ -36,10 +36,11 @@ function reset() {
     yourGuesses = [];
     guessedLettersText.textContent = "You have guessed: " + yourGuesses;
     compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-    console.log("new ramndom compChoice: " + compChoice);
+    console.log("new random compChoice: " + compChoice);
 };
 
-//
+// defines playAgain variable
+var playAgain = true;
 
 // This function is ran when a user presses a key. 
 document.onkeyup = function(guess) {
@@ -64,45 +65,29 @@ document.onkeyup = function(guess) {
         winsText.textContent = "Wins: " + wins;
         guessesLeft--;
         guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
-
-        reset();
-
-        // var playAgain = confirm("You've guessed the right letter! Play again?");
-    
-
-        // var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-        // console.log("New comp Random Letter: " + compChoice);
-        // confirm("You win! Play again?");
-
+        playAgain = confirm("You've guessed the right letter! Play again?");
+        if (playAgain) {
+            reset();
+        } else { 
+            alert("That's too bad... Press 'Alt F4' to quit. Or 'Command Q' for you Mac guys...")
+        };
 
     } else {
         guessesLeftText.textContent = "Remaining guesses: " + (guessesLeft-- - 1);
         console.log(guessesLeft);
     };
 
-
     console.log("guesses left: " + guessesLeft);
 
     if (guessesLeft === 0) {
         lossesText.textContent = "Losses: " + (1 + losses++);
-        // var playAgain = confirm("You ran out of guesses. Play again?");
-        reset();
+        playAgain = confirm("You ran out of guesses. Play again?");
+        if (playAgain) {
+            reset();
+        } else { 
+            alert("That's too bad... Press 'Alt F4' to quit. Or 'Command Q' for you Mac guys...")
+        };
     };
-
-
-    // if (playAgain) {
-    //     var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-    //     console.log("New compChoice: " + compChoice);
-    //     var guessesLeft = 10;
-    //     guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
-    //     // var yourGuesses = [];
-    //     // guessedLettersText.textContent = "You have guessed: ";
-
-    // } else {
-    //     alert("That's too bad... Press 'Alt F4' to quit. Or 'Command Q' for you Mac guys...")
-    // };
-
-
 
 };
 
