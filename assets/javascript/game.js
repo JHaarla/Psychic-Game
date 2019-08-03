@@ -17,30 +17,32 @@ var guessedLettersText = document.getElementById("guessProgress-text");
 // Chooses a random letter from the alphabet array and assigns it to compChoice
 var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 
-// var compChoice = function test() {
-//    alphabet[Math.floor(Math.random() * alphabet.length)];
-
-//     console.log(compChoice);
-    
-// }
-
-// test();
-
 // Logs compChoice to console for testing purposes
-    console.log("comp Random Letter: " + compChoice);
+console.log("comp Random Letter: " + compChoice);
 
-    //displays wins & losses
-    winsText.textContent = "Wins: " + wins;
-    lossesText.textContent = "Losses: " + losses;
+//displays wins & losses
+winsText.textContent = "Wins: " + wins;
+lossesText.textContent = "Losses: " + losses;
 
-    // displays guesses left 
+// displays guesses left and already guessed letters
+guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
+guessedLettersText.textContent = "You have guessed: " + yourGuesses;
+
+//  
+// Defines the reset function to be called later
+function reset() {
+    guessesLeft = 10;
     guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
+    yourGuesses = [];
+    guessedLettersText.textContent = "You have guessed: " + yourGuesses;
+    compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    console.log("new ramndom compChoice: " + compChoice);
+};
 
+//
 
 // This function is ran when a user presses a key. 
 document.onkeyup = function(guess) {
-    //IF PLAYER RUNS OUT OF GUESS - SET COMPCHOICE AGAIN
-    //IF PLAYER WINS/GUESSES CORRECT - SET COMPCHOICEAGAIN
     // sets userGuess to the key pressed
     var userGuess = guess.key;
 
@@ -62,7 +64,10 @@ document.onkeyup = function(guess) {
         winsText.textContent = "Wins: " + wins;
         guessesLeft--;
         guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
-        var playAgain = confirm("You've guessed the right letter! Play again?");
+
+        reset();
+
+        // var playAgain = confirm("You've guessed the right letter! Play again?");
     
 
         // var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -80,9 +85,8 @@ document.onkeyup = function(guess) {
 
     if (guessesLeft === 0) {
         lossesText.textContent = "Losses: " + (1 + losses++);
-        var playAgain = confirm("You ran out of guesses. Play again?");
-        yourGuesses = [];
-
+        // var playAgain = confirm("You ran out of guesses. Play again?");
+        reset();
     };
 
 
