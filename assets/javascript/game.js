@@ -17,20 +17,30 @@ var guessedLettersText = document.getElementById("guessProgress-text");
 // Chooses a random letter from the alphabet array and assigns it to compChoice
 var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
 
+// var compChoice = function test() {
+//    alphabet[Math.floor(Math.random() * alphabet.length)];
+
+//     console.log(compChoice);
+    
+// }
+
+// test();
+
 // Logs compChoice to console for testing purposes
-console.log(compChoice);
+    console.log("comp Random Letter: " + compChoice);
 
     //displays wins & losses
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
 
-    // guesses left goes here
+    // displays guesses left 
     guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
 
 
 // This function is ran when a user presses a key. 
 document.onkeyup = function(guess) {
-
+    //IF PLAYER RUNS OUT OF GUESS - SET COMPCHOICE AGAIN
+    //IF PLAYER WINS/GUESSES CORRECT - SET COMPCHOICEAGAIN
     // sets userGuess to the key pressed
     var userGuess = guess.key;
 
@@ -47,10 +57,42 @@ document.onkeyup = function(guess) {
     guessedLettersText.textContent = "You have guessed: " + yourGuesses;
 
     //logic to determine if player guessed correctly
-    // if ()
+    if (userGuess === compChoice) {
+        winsText.textContent = "Wins: " + (1 + wins++);
+        guessesLeftText.textContent = "Remaining guesses: " + (guessesLeft-- - 1);
+        var playAgain = confirm("You've guessed the right letter! Play again?");
+    
+
+        // var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+        // console.log("New comp Random Letter: " + compChoice);
+        // prompt("You win! Play again?");
 
 
+    } else {
+        guessesLeftText.textContent = "Remaining guesses: " + (guessesLeft-- - 1);
+        console.log(guessesLeft);
+    };
 
+
+    console.log("guesses left: " + guessesLeft);
+
+    if (guessesLeft === 0) {
+        lossesText.textContent = "Losses: " + (1 + losses++);
+        var playAgain = confirm("You ran out of guesses. Play again?")
+
+    };
+
+
+    // if (playAgain) {
+    //     var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    //     console.log("New compChoice: " + compChoice);
+    //     var guessesLeft = 10;
+    //     guessesLeftText.textContent = "Remaining guesses: " + guessesLeft;
+        
+
+    // } else {
+    //     alert("That's too bad... Press 'Alt F4' to quit. Or 'Command Q' for you Mac guys...")
+    // };
 
 
 
