@@ -6,26 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic-Game-JH</title>
 
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
 
 
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-center mt-2">
+                <!-- These elements will always be visible on the screen -->
+                <img src="/assets/images/title-graphic.png" class="img-fluid" alt="title graphic">
+            </div>    
+
+            <div class="col-lg-8 text-center mt-2">
+                <div class="card my-transparency">
+                    <h3 class="card-header">Welcome to the Psychic Game!</h3>
+                        <div class="card-body">
+                            <h5>I'll be thinking of a letter and your goal is to guess the letter I'm thinking of.</h5>
+                            <h5 id="instructions-text">Press a letter to make a guess!</h5>
+                            <br>
+                            <!-- These are text placeholders that will be written to from javascript -->
+                            <p id="wins-text"></p>
+                            <p id="losses-text"></p>
+                            <p id="guessesLeft-text"></p>
+                            <p id="guessProgress-text"></p>
+                        </div>   
+                </div>         
+            </div>
     
-    <!-- These elements will always be visible on the screen -->
+        </div>
+    </div>
+   
+  
+  
+  
+  
+  
+    <!-- These elements will always be visible on the screen
     <h1>Psychic Game</h1>
     <h3>Welcome to the Psychic Game!</h3>
     <h5>I'll be thinking of a letter and your goal is to guess the letter I'm thinking of.</h5>
     <h5 id="instructions-text">Press a letter to make a guess!</h5>
     <br>
-    <!-- These are text placeholders that will be written to from javascript -->
+    These are text placeholders that will be written to from javascript
     <p id="wins-text"></p>
     <p id="losses-text"></p>
     <p id="guessesLeft-text"></p>
-    <p id="guessProgress-text"></p>
+    <p id="guessProgress-text"></p> -->
 
 
 
